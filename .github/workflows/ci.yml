@@ -119,11 +119,11 @@ jobs:
         if: failure()
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.example.com
-          server_port: 587
+          server_address: smtp.gmail.com  # Servidor do Gmail
+          server_port: 465                # Porta para SSL
           username: ${{ secrets.EMAIL_ORIGIN }}
           password: ${{ secrets.SENHA_EMAIL }}
-          subject: "Falha no CI - Projeto XYZ"
-          body: "O processo de CI falhou. Por favor, verifique os logs para mais detalhes."
+          subject: "Falha no CI - Projeto DevOps_ATV1"
+          body: "O processo de CI falhou na branch main. Verifique os logs no GitHub Actions."
           to: ${{ secrets.EMAIL_DESTINO }}
-          from: ${{ secrets.EMAIL_ORIGIN }}   
+          from: "GitHub Actions <${{ secrets.EMAIL_ORIGIN }}>" # Ajuste aqui
